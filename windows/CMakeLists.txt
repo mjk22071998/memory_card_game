@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(memory_card_game LANGUAGES CXX)
 
-set(BINARY_NAME "memory_card_game")
+set(BINARY_NAME "Memory Card Game")
 
 cmake_policy(SET CMP0063 NEW)
 

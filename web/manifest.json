@@ -1,6 +1,6 @@
 {
-    "name": "memory_card_game",
-    "short_name": "memory_card_game",
+    "name": "Memory Card Game",
+    "short_name": "Memory Card Game",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
