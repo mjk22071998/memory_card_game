@@ -59,16 +59,31 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: SizedBox(
               width: width,
-              child: GridView.builder(
-                  itemCount: _game.cardCount,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 5,
-                    crossAxisSpacing: 5.0,
-                    mainAxisSpacing: 5.0,
-                  ),
-                  itemBuilder: (context, index) {
-                    return Container();
-                  }),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GridView.builder(
+                    itemCount: _game.gameImg!.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 5,
+                      crossAxisSpacing: 5.0,
+                      mainAxisSpacing: 5.0,
+                    ),
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          padding: const EdgeInsets.all(5.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(6.0),
+                            
+                          ),
+                          child: Image(image: AssetImage(_game.gameImg![index])),
+                        ),
+                      );
+                    }),
+              ),
             ),
           )
         ],
