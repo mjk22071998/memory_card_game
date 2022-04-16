@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memory_card_game/custom_widgets/scorecard.dart';
+import 'package:memory_card_game/utils/logic.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Memory Card Game',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: const MyHomePage(title: 'Memory Card Game'),
     );
@@ -27,28 +28,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final GameBoard _game = GameBoard();
+
+  @override
+  void initState() {
+    super.initState();
+    _game.initGame();
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Memory Game"),
+        backgroundColor: const Color(0xFFE55870),
+        centerTitle: true,
+        elevation: 0,
+      ),
       backgroundColor: const Color(0xFFE55870),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Center(
-            child: Text(
-              "Memory Game",
-              style: TextStyle(
-                fontSize: 48.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 24.0,
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -58,10 +60,11 @@ class _MyHomePageState extends State<MyHomePage> {
             child: SizedBox(
               width: width,
               child: GridView.builder(
+                  itemCount: _game.cardCount,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 10.0,
-                    mainAxisSpacing: 10.0,
+                    crossAxisCount: 5,
+                    crossAxisSpacing: 5.0,
+                    mainAxisSpacing: 5.0,
                   ),
                   itemBuilder: (context, index) {
                     return Container();
