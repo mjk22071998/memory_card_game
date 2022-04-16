@@ -4,7 +4,7 @@ class GameBoard {
   final String hiddencard = "assets/hidden.png";
   final cardCount = 25;
   late List<String>? gameImg;
-  List<String> cards = [];
+  late List<String> cards = [];
   List<Map<int, String>> matchChecked = [];
   final List<String> cardImgs = [
     "assets/burger.jpg",
