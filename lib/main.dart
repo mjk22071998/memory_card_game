@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:memory_card_game/custom_widgets/scorecard.dart';
 
@@ -31,6 +29,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color(0xFFE55870),
       body: Column(
@@ -47,15 +46,28 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          const SizedBox(height: 24.0,),
+          const SizedBox(
+            height: 24.0,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              scorecard("Tries", "0"),
-              scorecard("Score", "0")
-            ],
+            children: [scorecard("Tries", "0"), scorecard("Score", "0")],
           ),
+          Expanded(
+            child: SizedBox(
+              width: width,
+              child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 10.0,
+                    mainAxisSpacing: 10.0,
+                  ),
+                  itemBuilder: (context, index) {
+                    return Container();
+                  }),
+            ),
+          )
         ],
       ),
     );
