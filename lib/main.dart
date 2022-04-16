@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:memory_card_game/custom_widgets/scorecard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,7 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
-            
+            children: [
+              scorecard("Tries", "0"),
+              scorecard("Score", "0")
+            ],
           ),
         ],
       ),
